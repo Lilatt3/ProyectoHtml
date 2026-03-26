@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Lista de Parcelas{% endblock %}
+
+{% block content %}
+<h1>Parcelas</h1>
+<ul>
+    {% for p in parcelas %}
+        <li>
+            {{ p.id_parcela }} - {{ p.cultivo }} - {{ p.superficie }} - {{ p.ubicacion }} - {{ p.tipo }}
+            <a href="{{ url_for('actualizar_parcela', id_parcela=p.id_parcela) }}">Actualizar</a>
+            <a href="{{ url_for('borrar_parcela', id_parcela=p.id_parcela) }}">Borrar</a>
+        </li>
+    {% else %}
+        <li>No hay parcelas registradas.</li>
+    {% endfor %}
+</ul>
+
+<br>
+<a href="{{ url_for('insertar_parcela') }}">Insertar nueva parcela</a>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Insertar Parcela{% endblock %}
+
+{% block content %}
+<h1>Insertar Parcela</h1>
+
+<form action="{{ url_for('insertar_parcela') }}" method="POST">
+    <label for="cultivo">Cultivo:</label><br>
+    <input type="text" id="cultivo" name="cultivo" required><br>
+
+    <label for="superficie">Superficie:</label><br>
+    <input type="number" id="superficie" name="superficie" required><br>
+
+    <label for="ubicacion">Ubicación:</label><br>
+    <input type="text" id="ubicacion" name="ubicacion" required><br>
+
+    <label for="tipo">Tipo:</label><br>
+    <input type="text" id="tipo" name="tipo" required><br>
+
+    <button type="submit">Agregar Parcela</button>
+</form>
+
+<br>
+<a href="{{ url_for('home') }}">Volver atrás</a>
+{% endblock %}
